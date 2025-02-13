@@ -1,0 +1,59 @@
+.icons-page-container {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.icons-container {
+    width: 100vw;
+        height: 100vh;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+}
+
+.sub-heading {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 5cap;
+    position: absolute;
+    left: 1cm;
+    margin-top: 0%;
+    text-decoration: underline;
+    overflow: hidden;
+    white-space: nowrap;
+    /* Prevent text wrapping */
+}
+
+.letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(100%);
+    /* Start off-screen to the right */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.letter.show {
+    opacity: 1;
+    transform: translateX(0);
+    /* Bring letters into view */
+}
+
+/* Icons Container to hold FloatingIcons component */
+.icons-container {
+    width: 100vw;
+    /* Full width of the viewport */
+    height: 100vh;
+    /* Take up 80% of the viewport height */
+    display: flex;
+    justify-content: center;
+    /* Center the Canvas horizontally */
+    align-items: center;
+    /* Center the Canvas vertically */
+    position: relative;
+}

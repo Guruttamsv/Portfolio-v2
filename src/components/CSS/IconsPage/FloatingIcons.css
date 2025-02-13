@@ -1,0 +1,118 @@
+/* Ensure the Canvas container fills the parent */
+.play-container {
+    width: 100%; /* Full width of the parent */
+    height: 80vh; /* Use 80% of the viewport height */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    position: relative; /* Positioning context for pop-ups */
+    overflow: hidden; /* Ensure nothing overflows */
+}
+
+/* Styling for the Canvas element */
+canvas {
+    width: 100%; /* Ensure the Canvas takes full width of its container */
+    height: 100%; /* Ensure Canvas takes full height */
+    display: block; /* Prevent inline display issues */
+    object-fit: cover; /* Make sure canvas content covers the area */
+}
+
+
+/* CSS for the pop-up card */
+.popup-menu {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the card */
+    background-color: var(--purple);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+    width: 60vw; /* Width as a percentage of the viewport width */
+    max-width: 1000px; /* Max width to avoid stretching */
+    height: auto;
+    max-height: 60vh; /* Max height for better readability */
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+/* Popup content and message styling */
+.popup-content {
+    text-align: center;
+    font-size: 2vw; /* Adjust font size based on viewport width */
+}
+
+.card-message {
+    font-size: 1rem; /* Default font size */
+    color: white;
+    line-height: 1.5;
+    padding: 10px;
+    word-wrap: break-word;
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 1.2rem; /* Slightly larger title font */
+}
+
+.card-text {
+    font-size: 1rem; /* Default size for content */
+    display: block;
+}
+
+/* FadeIn animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsiveness for small screens */
+@media (max-width: 768px) {
+    .popup-menu {
+        width: 90vw; /* Make the card wider on smaller screens */
+        height: 60vh; /* Reduce height */
+    }
+
+    .popup-content {
+        font-size: 4vw; /* Adjust text size */
+    }
+
+    .card-title {
+        font-size: 1.5rem; /* Larger title on smaller screens */
+    }
+
+    .card-message {
+        font-size: 1.1rem; /* Slightly larger font on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .popup-menu {
+        width: 95vw; /* Card width should be almost the full screen */
+        height: 50vh; /* Card height adjustment */
+    }
+
+    .popup-content {
+        font-size: 5vw; /* More responsive text size */
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .card-message {
+        font-size: 1.2rem;
+    }
+}
+

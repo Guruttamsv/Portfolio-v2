@@ -1,0 +1,52 @@
+/* src/pagesCSS/HomePage.css */
+.home-grid-container {
+    display: grid;
+    grid-template-areas:
+        "ticker"
+        "hero"
+        "typed";
+    grid-template-rows: auto 1fr auto;
+    /* Ticker and Typing have automatic height, Hero takes up the remaining space */
+    gap: 20px;
+    padding: 20px;
+}
+
+.ticker-area {
+    grid-area: ticker;
+
+}
+
+.hero-area {
+    grid-area: hero;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    /* Adjust for precise placement */
+    top: 6pc;
+    left: 0;
+}
+
+.typing-area {
+    grid-area: typed;
+}
+
+/* Ensure the Hero section is at least the viewport height */
+.hero-area {
+    min-height: 82vh;
+    /* Adjust according to your preference */
+}
+
+/* Media queries to ensure responsiveness */
+@media (min-width: 768px) {
+    .hero-area {
+        height: 80vh;
+        /* Adjust for tablets and larger screens */
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-area {
+        min-height: 100vh;
+        /* Full viewport height for large screens */
+    }
+}

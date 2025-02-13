@@ -1,0 +1,42 @@
+/* src/components/CSS/HomePage/Ticker.css */
+.ticker-container {
+    width: 100%;
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 0;
+    overflow: hidden;
+    position: absolute;
+    /* Fixed to ensure it's always visible at the top */
+    top: 3pc;
+    left: 0;
+    cursor: pointer;
+    z-index: 9999;
+    /* Ensures it stays above other elements */
+}
+
+.ticker-text {
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: ticker 200s linear infinite;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+.ticker-text.hovered {
+    animation: none;
+    white-space: normal;
+    overflow: visible;
+}
+
+@keyframes ticker {
+    0% {
+        transform: translateX(10%);
+        /* Start just off the screen */
+    }
+
+    100% {
+        transform: translateX(-190%);
+        /* Move to the left off-screen */
+    }
+}

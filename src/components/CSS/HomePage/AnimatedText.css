@@ -1,0 +1,36 @@
+.svg-container {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 100vw;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    z-index: -auto;
+    /* Ensure it’s behind other content */
+}
+
+.animated-text {
+    width: 100%;
+    height: auto;
+    max-width: 90vw;
+    max-height: 60vh;
+    transform: scale(0.9);
+    pointer-events: none;
+}
+
+/* This will make sure the text path scales properly and stays inside the window */
+motion.path {
+    transform-origin: center;
+    transition: transform 1s ease-in-out;
+    /* Smooth transition */
+}
+
+/* Make the stroke a bit bolder for visibility */
+motion.path {
+    stroke-width: 6;
+}

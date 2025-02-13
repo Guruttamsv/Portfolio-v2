@@ -1,0 +1,96 @@
+/* src/components/CSS/HomePage/Hero.css */
+.hero-image {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.hero-image::before {
+    content: "";
+    position: absolute;
+    top: 51%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    background-image: url('/src/assets/Removal-236.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: translate(-50%, -50%);
+}
+
+.hero-container { 
+    top: 5cm;
+    /* Move up by 10px */
+    left: 0;
+    width: 100%;
+    height: 90%;
+}
+
+.hero-container canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Mobile-specific styles */
+.hero-mobile-container {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* Ensure full viewport height */
+    overflow: hidden;
+}
+.hero-mobile-container canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Adjusts how the content fits in the container */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-container {
+        top: -5px;
+    }
+
+    .hero-mobile-container {
+        top: -3px;
+        /* Adjust for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-container {
+        top: -2px;
+    }
+
+    .hero-mobile-container {
+        top: -2px;
+        /* Further adjust for very small screens */
+    }
+}
+
+
+/* Scroll down indicator styling */
+.scroll-text {
+    font-size: 1.5rem;
+    color: black;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: absolute;
+    bottom: 5.3pc;
+    /* Positioned near the bottom of the hero-container */
+    left: 1cm;
+    /* Positioned to the left side */
+    opacity: 0;
+    /* Start invisible */
+    transform: translateY(50px);
+    /* Start below the screen */
+}

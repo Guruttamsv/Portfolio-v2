@@ -1,0 +1,218 @@
+/* Global styling */
+body {
+  --purple: RGB(139, 108, 194);
+  --accent: var(--purple);
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Main container for layout */
+#work-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100vw;
+  height: 55vh;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Circle container to hold the SVG progress circle */
+#circle-container {
+  position: absolute;
+  top: 20px;
+  left: 46.4%;
+  z-index: 1000;
+}
+
+/* Grids container to hold the horizontally scrolling list */
+#grids-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 100px;
+  height: 90vh;
+}
+
+/* SVG styling */
+#progress {
+  transform: rotate(-90deg);
+}
+
+circle {
+  stroke-dashoffset: 0;
+  stroke-width: 15%;
+  fill: none;
+}
+
+#progress .bg {
+  stroke: #ddd;
+}
+
+#progress .indicator {
+  stroke: var(--accent);
+}
+
+/* List styling for horizontal scrolling (Targeting #horizontal-tabs) */
+#horizontal-tabs {
+  display: flex;
+  list-style: none;
+  height: 50%;
+  overflow-x: auto;
+  padding: 10px 0;
+  margin: 0 auto;
+  width: 100%;
+}
+
+#horizontal-tabs::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+  background: #fff3;
+}
+
+#horizontal-tabs::-webkit-scrollbar-thumb {
+  background: var(--accent);
+}
+
+/* Individual card styling (Targeting li inside #horizontal-tabs) */
+#horizontal-tabs li {
+  flex: 0 0 20vw;
+  margin: 0 10px;
+  position: relative;
+  /* For absolute positioning of arrow */
+}
+
+#horizontal-tabs .card {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+}
+
+/* Styling for the image inside the card */
+#horizontal-tabs .card-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+#horizontal-tabs .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#horizontal-tabs .card:hover .card-image img {
+  opacity: 0.7;
+  transform: scale(1.1);
+}
+
+#horizontal-tabs .card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Styling for Title (Top left) */
+#horizontal-tabs .card-overlay h3 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  font-size: 24px;
+  margin: 0;
+  text-align: left;
+  /* Align title to the left */
+}
+/* Styling for Note (Bottom left) */
+#horizontal-tabs .card-overlay .note {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #ddd;
+  font-size: 16px;
+  margin: 0;
+  text-align: left;
+  /* Align note to the left */
+}
+
+/* Hover effects */
+#horizontal-tabs .card:hover .card-overlay {
+  opacity: 1;
+}
+
+#horizontal-tabs .card.expanded {
+  flex: 0 0 90vw;
+  width: 50vw;
+  height: 100%;
+  z-index: 1000;
+}
+
+#horizontal-tabs .card.expanded .card-image {
+  opacity: 0;
+}
+
+#horizontal-tabs .card.expanded .card-overlay {
+  background: var(--purple);
+  opacity: 1;
+}
+
+#horizontal-tabs .card.expanded .card-overlay p {
+  color: white;
+  font-size: 20px;
+  text-align: left;
+  /* Align description to the left */
+  margin: 0;
+  padding: 20px;
+}
+
+/* Arrow styling for the right bottom corner */
+.arrow {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border-left: 3px solid white;
+  border-bottom: 3px solid white;
+  transform: rotate(45deg);
+  /* Initially pointing to the right */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  /* Hidden by default */
+}
+
+/* Show arrow when hovered */
+#horizontal-tabs .card:hover .arrow {
+  opacity: 1;
+  /* Show the arrow on hover */
+  transform: rotate(-135deg);
+  /* Arrow faces left when hovered */
+}
+
+/* Show arrow when the card is expanded */
+#horizontal-tabs .card.expanded .arrow {
+  opacity: 1;
+  /* Show the arrow when expanded */
+  transform: rotate(45deg);
+  /* Arrow faces right when expanded */
+}
