@@ -107,16 +107,16 @@ const FloatingIcon: React.FC<{
 // Main component to display all floating icons
 const FloatingIcons: React.FC<{ mobile?: boolean }> = ({ mobile = false }) => {
   const iconPaths = [
-    "src/assets/GLTFS/AirPods/AirPods.gltf",
-    "src/assets/GLTFS/Cactus/Cactus.gltf",
-    "src/assets/GLTFS/Calculator/Calculator.gltf",
-    "src/assets/GLTFS/Flashdrive/Flashdrive.gltf",
-    "src/assets/GLTFS/Joystick/Joystick.gltf",
-    "src/assets/GLTFS/Lifebuoy/Lifebuoy.gltf",
-    "src/assets/GLTFS/Mouse/Mouse.gltf",
-    "src/assets/GLTFS/Router/Router.gltf",
-    "src/assets/GLTFS/Rubiks Cube/Rubiks Cube.gltf",
-    "src/assets/GLTFS/Suitcase/Suitcase.gltf",
+    "/assets/GLTFS/AirPods/AirPods.gltf",
+    "/assets/GLTFS/Cactus/Cactus.gltf",
+    "/assets/GLTFS/Calculator/Calculator.gltf",
+    "/assets/GLTFS/Flashdrive/Flashdrive.gltf",
+    "/assets/GLTFS/Joystick/Joystick.gltf",
+    "/assets/GLTFS/Lifebuoy/Lifebuoy.gltf",
+    "/assets/GLTFS/Mouse/Mouse.gltf",
+    "/assets/GLTFS/Router/Router.gltf",
+    "/assets/GLTFS/Rubiks Cube/Rubiks Cube.gltf",
+    "/assets/GLTFS/Suitcase/Suitcase.gltf",
   ];
 
   const initialPositions: [number, number, number][] = [

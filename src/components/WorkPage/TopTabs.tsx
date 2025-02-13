@@ -33,7 +33,7 @@ const TopTabs: React.FC = () => {
       id: 1,
       title: "Tip of Tongue Known Item Retrieval",
       note: "Python + LLM + Langchain + Autoencoder",
-      imgSrc: "src/assets/TOT.webp",
+      imgSrc: "/assets/TOT.webp",
       description: `
         -Overview-
         The Tip of Tongue (TOT) phenomenon, where you know something but can't quite recall it, is a common frustration. This project aimed to develop a chatbot that helps users retrieve movie titles they struggle to remember. The chatbot combines Large Language Models (LLMs) and unsupervised learning techniques to narrow down movie options based on user descriptions and iterative questioning.
@@ -51,7 +51,7 @@ const TopTabs: React.FC = () => {
       id: 2,
       title: "Automated Testing",
       note: "Selenium + Webdriver + C#",
-      imgSrc: "src/assets/INT.webp",
+      imgSrc: "/assets/INT.webp",
       description: `
         -Overview-
         During my placement year at Transputec, within the CrisesControl division, I gained practical experience in software development and quality assurance. My primary focus was on enhancing the CrisesControl platform, a tool designed for business continuity and crisis management, through both manual and automated testing.
