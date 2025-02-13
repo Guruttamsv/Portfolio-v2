@@ -48,7 +48,7 @@ const cardData = [
   {
     id: 5,
     title: "Face Recognition",
-    note: "Python + OpenCV / PyTorch + ARIMA Model",
+    note: "Python + OpenCV",
     description: `
       This project consists of two main modules: face recognition using OpenCV and stock price prediction using the ARIMA model. In the face recognition module, I developed programs to detect faces in static images, videos, and live webcam feeds, with real-time facial detection marking faces with bounding boxes. The stock prediction module analyzes historical stock data to forecast prices using ARIMA, with daily and intraday analyses on Tesla and Apple stocks. Implemented in Python, OpenCV manages face detection, while yfinance, pandas, and statsmodels support stock data analysis and ARIMA forecasting. Challenges included managing diverse data sources and optimizing the ARIMA model for accuracy, with adjustments in feature engineering and model tuning. I handled all aspects of the project, from data collection to visualization, providing insights into both security applications and investment analysis. Through this project, I developed skills in data science and model optimization, with plans to integrate these methods into larger projects that apply machine learning to real-world problems.
     `,
@@ -57,11 +57,11 @@ const cardData = [
   {
     id: 6,
     title: "Stock Prediction",
-    note: "Python + OpenCV / PyTorch + ARIMA Model",
+    note: "PyTorch + ARIMA Model",
     description: `
       This project consists of two main modules: face recognition using OpenCV and stock price prediction using the ARIMA model. In the face recognition module, I developed programs to detect faces in static images, videos, and live webcam feeds, with real-time facial detection marking faces with bounding boxes. The stock prediction module analyzes historical stock data to forecast prices using ARIMA, with daily and intraday analyses on Tesla and Apple stocks. Implemented in Python, OpenCV manages face detection, while yfinance, pandas, and statsmodels support stock data analysis and ARIMA forecasting. Challenges included managing diverse data sources and optimizing the ARIMA model for accuracy, with adjustments in feature engineering and model tuning. I handled all aspects of the project, from data collection to visualization, providing insights into both security applications and investment analysis. Through this project, I developed skills in data science and model optimization, with plans to integrate these methods into larger projects that apply machine learning to real-world problems.
     `,
-    imageUrl: "./assets/5.webp",
+    imageUrl: "./assets/6.webp",
   },
   {
     id: 7,
@@ -70,34 +70,34 @@ const cardData = [
     description: `
       This project focuses on natural language processing, specifically sentiment analysis and text summarization. For sentiment analysis, I used Word2Vec embeddings and a Long Short-Term Memory (LSTM) network to classify movie reviews as positive or negative. The project included text preprocessing, data cleaning, and model building, achieving high accuracy in sentiment prediction using IMDB data. The text summarization module uses the Mistral-7B-Instruct model via Hugging Face to summarize lengthy PDFs, suitable for extracting essential information from articles or research papers. I developed custom prompts and implemented recursive text splitting to handle large documents. These projects were built in Python using TensorFlow and Keras for the LSTM model and the Hugging Face Transformers library for summarization. Through these projects, I gained experience in NLP techniques and model optimization, and I plan to integrate these capabilities into larger NLP projects in the future, focusing on applications in content analysis and information retrieval.
     `,
-    imageUrl: "./assets/6.webp",
+    imageUrl: "./assets/7.webp",
   },
   {
     id: 8,
     title: "Text Summarization",
-    note: "Python + TensorFlow + Word2Vec",
+    note: "Python + Langcahin + Transformers",
     description: `
       This project focuses on natural language processing, specifically sentiment analysis and text summarization. For sentiment analysis, I used Word2Vec embeddings and a Long Short-Term Memory (LSTM) network to classify movie reviews as positive or negative. The project included text preprocessing, data cleaning, and model building, achieving high accuracy in sentiment prediction using IMDB data. The text summarization module uses the Mistral-7B-Instruct model via Hugging Face to summarize lengthy PDFs, suitable for extracting essential information from articles or research papers. I developed custom prompts and implemented recursive text splitting to handle large documents. These projects were built in Python using TensorFlow and Keras for the LSTM model and the Hugging Face Transformers library for summarization. Through these projects, I gained experience in NLP techniques and model optimization, and I plan to integrate these capabilities into larger NLP projects in the future, focusing on applications in content analysis and information retrieval.
     `,
-    imageUrl: "./assets/6.webp",
+    imageUrl: "./assets/8.webp",
   },
   {
     id: 9,
     title: "Pneumonia Detection",
-    note: "TensorFlow Keras + Python + CNN / PyTorch + CNN",
+    note: "TensorFlow Keras + Python + CNN",
     description: `
       This project consists of two image classification applications: a pneumonia detection model and satellite image classification. For pneumonia detection, I built a CNN using TensorFlow and Keras to classify X-ray images into "pneumonia" or "normal" categories, focusing on data preprocessing, model design, and training. The satellite image classification model, developed using PyTorch, processes land cover images to analyze geographic patterns. The CNN model in each application includes convolutional, max pooling, and dropout layers to improve accuracy and reduce overfitting. Through this project, I gained experience in handling medical and environmental data, optimizing CNN architectures, and applying transfer learning to improve model performance. This work supports future applications in medical diagnostics and environmental monitoring, where I plan to further explore CNN applications in classification and prediction.
     `,
-    imageUrl: "./assets/8.webp",
+    imageUrl: "./assets/9.webp",
   },
   {
     id: 10,
     title: "Satellite Image Classification",
-    note: "TensorFlow Keras + Python + CNN / PyTorch + CNN",
+    note: "Python + PyTorch + CNN",
     description: `
       This project consists of two image classification applications: a pneumonia detection model and satellite image classification. For pneumonia detection, I built a CNN using TensorFlow and Keras to classify X-ray images into "pneumonia" or "normal" categories, focusing on data preprocessing, model design, and training. The satellite image classification model, developed using PyTorch, processes land cover images to analyze geographic patterns. The CNN model in each application includes convolutional, max pooling, and dropout layers to improve accuracy and reduce overfitting. Through this project, I gained experience in handling medical and environmental data, optimizing CNN architectures, and applying transfer learning to improve model performance. This work supports future applications in medical diagnostics and environmental monitoring, where I plan to further explore CNN applications in classification and prediction.
     `,
-    imageUrl: "./assets/8.webp",
+    imageUrl: "./assets/10.webp",
   },
   {
     id: 11,
@@ -106,44 +106,49 @@ const cardData = [
     description: `
       This advanced calculator was developed as a first-year project, aiming to provide a fully functional application with ten distinct operations, including hexadecimal-to-decimal conversion. The project was designed as a GUI application using Java Swing to offer a user-friendly interface for basic arithmetic and specialized functions. Java was used to implement each operation, while Java Swing handled the interface, allowing for intuitive user interaction through buttons and keyboard entries. Challenges included managing user input effectively, which I addressed by implementing error handling and testing Swing’s event-handling capabilities. As the team lead, I designed and developed the interface and ensured integration of all functions into a cohesive application. The project received an A+ and third place among competitors, with praise for its intuitive GUI and advanced features.
     `,
-    imageUrl: "./assets/7.webp",
+    imageUrl: "./assets/11.webp",
   },
-  {
-    id: 12,
-    title: "Youtube Channel",
-    note: "Davinci Resolve + Adobe",
-    description:
-      "This project is a reflection of my passion for video creation, where I shoot and edit content as a fun and creative hobby. Using tools like DaVinci Resolve and Adobe Premiere Pro, I’ve spent time developing my editing skills and experimenting with different filming techniques. While it’s not a professional venture, the channel has allowed me to explore storytelling through video, improve my technical abilities, and enhance my creativity with each new video. Whether it’s simple edits or more complex content, every project helps me continue to grow in my understanding of video production. From color correction to audio enhancements and visual effects, I enjoy the process of creating content that reflects my personal journey in video editing. This channel is a personal outlet for me, where I can share my progress and enjoy the process of creating without the pressure of professional expectations. It’s a space where I continue to learn, have fun, and challenge myself to improve.",
-    imageUrl: "./assets/9.png", // Reuse images from existing ones
-  },
+
+ {
+  id: 12,
+  title: "Youtube Channel",
+  note: "Davinci Resolve + Adobe Premier",
+  description: (
+    <>
+      This project is a reflection of my passion for video creation, where I shoot and edit content as a fun and creative hobby. Using tools like DaVinci Resolve and Adobe Premiere Pro, I’ve spent time developing my editing skills and experimenting with different filming techniques. While it’s not a professional venture, the channel has allowed me to explore storytelling through video, improve my technical abilities, and enhance my creativity with each new video. Whether it’s simple edits or more complex content, every project helps me continue to grow in my understanding of video production. From color correction to audio enhancements and visual effects, I enjoy the process of creating content that reflects my personal journey in video editing. This channel is a personal outlet for me, where I can share my progress and enjoy the process of creating without the pressure of professional expectations. It’s a space where I continue to learn, have fun, and challenge myself to improve. 
+      <a 
+        href="https://www.youtube.com/@GrrusInsight" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        style={{ color: "#00ccff", textDecoration: "none", fontWeight: "bold", marginLeft: "5px" }}
+      >
+        Check it out here!
+      </a>
+    </>
+  ),
+  imageUrl: "./assets/12.webp",
+},
   // Added "Coming Soon" cards with blurred images
   {
     id: 13,
     title: "Coming Soon...",
     note: "Coming Soon...",
     description: "Stay tuned for this upcoming project!",
-    imageUrl: "./assets/10.png",
+    imageUrl: "./assets/14.png",
   },
   {
     id: 14,
     title: "Coming Soon...",
     note: "Coming Soon...",
     description: "Stay tuned for this upcoming project!",
-    imageUrl: "./assets/11.png",
+    imageUrl: "./assets/15.png",
   },
   {
     id: 15,
     title: "Coming Soon...",
     note: "Coming Soon...",
     description: "Stay tuned for this upcoming project!",
-    imageUrl: "./assets/12.png",
-  },
-  {
-    id: 13,
-    title: "Coming Soon...",
-    note: "Coming Soon...",
-    description: "Stay tuned for this upcoming project!",
-    imageUrl: "./assets/13.png",
+    imageUrl: "./assets/16.png",
   },
 ];
 
