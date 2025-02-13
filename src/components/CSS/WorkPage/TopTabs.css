@@ -1,16 +1,18 @@
 /* Centered container for the two top tabs */
 #top-tabs-container {
     display: flex;
-    justify-content: left;
-    gap: 90px;
-    margin-top: 20px;
-    margin-bottom: -90px;
+        justify-content: center;
+        gap: 3vw;
+        /* Adjusted for responsiveness */
+        margin-top: 20px;
+        margin-bottom: -90px;
+        align-items: flex-start;
 }
 
 /* Styling for each individual top tab */
 .top-tab {
     width: 45vw;
-    height: 30vh;
+    min-height: 30vh;
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -20,13 +22,21 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+    background: #222;
+    flex-grow: unset;
+    align-self: flex-start;
+    max-height: 30vh;
 }
 
 /* When tab is expanded */
 .top-tab.expanded {
     width: 45vw;
-    height: 100vh;
-    z-index: 1000;
+    height: auto;
+    min-height: 30vh;
+    background: var(--purple);
+    padding-bottom: 20px;
+    flex-grow: 1;
+    max-height: none;
 }
 
 /* Card image container */
@@ -40,6 +50,11 @@
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* Hide image when tab is expanded */
+.top-tab.expanded .card-image {
+    display: none;
+    }
+
 /* Image inside the card */
 .top-tab .card-image img {
     width: 100%;
@@ -51,9 +66,7 @@
 /* Hover effect: zoom the image */
 .top-tab:hover .card-image img {
     opacity: 0.7;
-    /* Darken image */
     transform: scale(1.1);
-    /* Zoom the image */
 }
 
 /* Card overlay (darkened background for description) */
@@ -73,27 +86,6 @@
     padding: 20px;
 }
 
-/* Styling for the description */
-.top-tab .card-overlay span {
-    color: white;
-    font-size: 16px;
-    text-align: left;
-    /* Ensure description text is left-aligned */
-    line-height: 1.4;
-    /* Adjust line height for readability */
-    margin-bottom: 8px;
-    /* Ensure the text doesn’t feel too cramped */
-}
-
-/* For the note text */
-.top-tab .card-note {
-    color: white;
-    font-size: 18px;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
 /* Hover effect to show overlay */
 .top-tab:hover .card-overlay {
     opacity: 1;
@@ -102,18 +94,20 @@
 /* When the tab is expanded, show the overlay */
 .top-tab.expanded .card-overlay {
     background: var(--purple);
+    color: white;
     opacity: 1;
+    position: relative;
+    height: auto;
 }
 
-/* Title in the overlay, placed between top and middle */
+/* Title in the overlay */
 .top-tab .card-overlay h3 {
     color: white;
     font-size: 24px;
     margin-top: 15%;
-    /* Adjust the margin to position title between top and middle */
 }
 
-/* Note in the overlay, positioned under the title before expansion */
+/* Note in the overlay */
 .top-tab .card-note {
     color: white;
     font-size: 18px;
@@ -122,19 +116,22 @@
     margin-bottom: 20px;
 }
 
-/* Description text aligned left and reduced size */
-.top-tab .card-overlay p {
+/* Description text */
+.expanded-content {
     color: white;
     font-size: 16px;
-    /* Reduced font size */
     text-align: left;
-    /* Ensure description text is aligned left */
     padding: 10px;
-    margin-top: 10px;
     width: 100%;
-    /* Use full width but ensure padding is used for readability */
     line-height: 1.4;
-    /* Improve readability with line height */
+    position: relative;
+    z-index: 2;
+}
+
+/* Each description line */
+.description-line {
+    display: block;
+    margin-bottom: 5px;
 }
 
 /* Positioning the icon in the bottom-right corner */
@@ -147,29 +144,16 @@
     cursor: pointer;
     transition: transform 0.3s ease, opacity 0.3s ease;
     opacity: 0;
-    /* Initially hidden */
     visibility: hidden;
-    /* Initially hidden */
 }
 
 /* Show the icon when the tab is hovered */
 .top-tab:hover .icon {
     opacity: 1;
-    /* Make visible */
     visibility: visible;
-    /* Ensure the icon is visible */
 }
 
 /* When the tab is expanded, rotate the icon */
 .top-tab.expanded .icon {
     transform: rotate(180deg);
-    /* Rotate icon */
-}
-
-/* When the tab is expanded, make sure the icon stays in the bottom-right */
-.top-tab.expanded .icon {
-    right: 15px;
-    /* Adjust to fit expanded size */
-    bottom: 15px;
-    /* Adjust to fit expanded size */
 }

@@ -14,8 +14,8 @@ const TypingEffect: React.FC = () => {
             "Web<br/>Developer",
             "Automation<br/>Test Engineer",
           ]}
-          typeSpeed={50} // Speed of typing
-          backSpeed={30} // Speed of backspacing
+          typeSpeed={80} // Speed of typing
+          backSpeed={50} // Speed of backspacing
           loop // Loop the typing effect
           backDelay={1500} // Delay before starting to backspace
           startDelay={500} // Delay before starting to type

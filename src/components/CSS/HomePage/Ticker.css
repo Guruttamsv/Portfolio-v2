@@ -18,7 +18,7 @@
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
-    animation: ticker 200s linear infinite;
+    animation: ticker 400s linear infinite;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
 }
@@ -31,12 +31,12 @@
 
 @keyframes ticker {
     0% {
-        transform: translateX(10%);
+        transform: translateX(5%);
         /* Start just off the screen */
     }
 
     100% {
-        transform: translateX(-190%);
+        transform: translateX(-180%);
         /* Move to the left off-screen */
     }
 }

@@ -131,7 +131,7 @@ const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 
         {/* Add the Download CV Button */}
         <div className="download-cv">
-          <a href="gurusofteng.pdf" download className="download-button">
+          <a href="GruSivCV.pdf" download className="download-button">
             Download CV
           </a>
         </div>

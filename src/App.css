@@ -1,6 +1,10 @@
 /* Fullpage section for each component */
 .fullpage-section {
     min-height: 100vh;
+    width: 100vw;
+    /* Ensure full width of the viewport */
+    position: relative;
+    /* This ensures proper stacking context */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,10 +19,18 @@
 
 .work-background {
     background: linear-gradient(to bottom, #A5D0FF, #EEC2FF);
+    position: relative;
+    /* Ensures proper stacking of elements */
+    z-index: 1;
+    /* Ensure the background is above the parallax */
 }
 
 .whyme-background {
     background: linear-gradient(to bottom, #EEC2FF, #FFFFFF);
+        position: relative;
+            /* Ensures proper stacking of elements */
+            z-index: 1;
+            /* Ensure the background is above the parallax */
 }
 
 .contact-background {
@@ -29,28 +41,70 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Adjust the body margin based on sidebar */
 body {
-    margin-left: 250px;
-    transition: margin-left 0.3s;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
-body.collapsed {
-    margin-left: 60px;
-    overflow-x: hidden;
-    /* Prevents the gap when the sidebar closes */
-}
-
+/* Optional: make sure the body doesn't scroll horizontally */
 .App {
     overflow-x: hidden;
-    /* Ensure no horizontal overflow */
 }
 
 main {
     transition: margin-left 0.3s ease-in-out;
 }
 
-/* Extra styles for any additional tweaks */
+/* When the sidebar is collapsed */
+body.collapsed {
+    margin-left: 60px;
+    overflow-x: hidden;
+}
+
+/* Main section for collapsing */
 .main.collapsed {
     margin-left: 60px;
+}
+
+/* Ensure the content doesn't overlap the parallax background */
+.work-content {
+    z-index: 2;
+    /* Ensure WorkPage content stays in front */
+    position: relative;
+    /* WorkPage should stay above parallax */
+}
+
+/* Parallax should be in the background, behind content */
+.parallax {
+    position: absolute;
+    /* Ensure parallax text is absolutely positioned */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    /* Full width of the viewport */
+    height: 100vh;
+    /* Full height of the viewport */
+    z-index: -1;
+    /* Push it behind the content */
+    overflow: hidden;
+    letter-spacing: -2px;
+    line-height: 0.8;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.parallax .scroller {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 64px;
+    display: flex;
+    white-space: nowrap;
+    position: relative;
+}
+
+.parallax span {
+    display: block;
+    margin-right: 30px;
 }

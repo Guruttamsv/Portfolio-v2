@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import "../CSS/WorkPage/WorkGrid.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+
+const handleGithubClick = () => {
+    window.open("https://github.com/Guruttamsv?tab=repositories", "_blank");
+  };
 
 const cardData = [
   {
@@ -41,7 +47,7 @@ const cardData = [
   },
   {
     id: 5,
-    title: "Face Recognition / Stock Prediction",
+    title: "Face Recognition",
     note: "Python + OpenCV / PyTorch + ARIMA Model",
     description: `
       This project consists of two main modules: face recognition using OpenCV and stock price prediction using the ARIMA model. In the face recognition module, I developed programs to detect faces in static images, videos, and live webcam feeds, with real-time facial detection marking faces with bounding boxes. The stock prediction module analyzes historical stock data to forecast prices using ARIMA, with daily and intraday analyses on Tesla and Apple stocks. Implemented in Python, OpenCV manages face detection, while yfinance, pandas, and statsmodels support stock data analysis and ARIMA forecasting. Challenges included managing diverse data sources and optimizing the ARIMA model for accuracy, with adjustments in feature engineering and model tuning. I handled all aspects of the project, from data collection to visualization, providing insights into both security applications and investment analysis. Through this project, I developed skills in data science and model optimization, with plans to integrate these methods into larger projects that apply machine learning to real-world problems.
@@ -50,7 +56,16 @@ const cardData = [
   },
   {
     id: 6,
-    title: "Sentiment Analysis / Text Summarization",
+    title: "Stock Prediction",
+    note: "Python + OpenCV / PyTorch + ARIMA Model",
+    description: `
+      This project consists of two main modules: face recognition using OpenCV and stock price prediction using the ARIMA model. In the face recognition module, I developed programs to detect faces in static images, videos, and live webcam feeds, with real-time facial detection marking faces with bounding boxes. The stock prediction module analyzes historical stock data to forecast prices using ARIMA, with daily and intraday analyses on Tesla and Apple stocks. Implemented in Python, OpenCV manages face detection, while yfinance, pandas, and statsmodels support stock data analysis and ARIMA forecasting. Challenges included managing diverse data sources and optimizing the ARIMA model for accuracy, with adjustments in feature engineering and model tuning. I handled all aspects of the project, from data collection to visualization, providing insights into both security applications and investment analysis. Through this project, I developed skills in data science and model optimization, with plans to integrate these methods into larger projects that apply machine learning to real-world problems.
+    `,
+    imageUrl: "./assets/5.webp",
+  },
+  {
+    id: 7,
+    title: "Sentiment Analysis",
     note: "Python + TensorFlow + Word2Vec",
     description: `
       This project focuses on natural language processing, specifically sentiment analysis and text summarization. For sentiment analysis, I used Word2Vec embeddings and a Long Short-Term Memory (LSTM) network to classify movie reviews as positive or negative. The project included text preprocessing, data cleaning, and model building, achieving high accuracy in sentiment prediction using IMDB data. The text summarization module uses the Mistral-7B-Instruct model via Hugging Face to summarize lengthy PDFs, suitable for extracting essential information from articles or research papers. I developed custom prompts and implemented recursive text splitting to handle large documents. These projects were built in Python using TensorFlow and Keras for the LSTM model and the Hugging Face Transformers library for summarization. Through these projects, I gained experience in NLP techniques and model optimization, and I plan to integrate these capabilities into larger NLP projects in the future, focusing on applications in content analysis and information retrieval.
@@ -58,7 +73,34 @@ const cardData = [
     imageUrl: "./assets/6.webp",
   },
   {
-    id: 7,
+    id: 8,
+    title: "Text Summarization",
+    note: "Python + TensorFlow + Word2Vec",
+    description: `
+      This project focuses on natural language processing, specifically sentiment analysis and text summarization. For sentiment analysis, I used Word2Vec embeddings and a Long Short-Term Memory (LSTM) network to classify movie reviews as positive or negative. The project included text preprocessing, data cleaning, and model building, achieving high accuracy in sentiment prediction using IMDB data. The text summarization module uses the Mistral-7B-Instruct model via Hugging Face to summarize lengthy PDFs, suitable for extracting essential information from articles or research papers. I developed custom prompts and implemented recursive text splitting to handle large documents. These projects were built in Python using TensorFlow and Keras for the LSTM model and the Hugging Face Transformers library for summarization. Through these projects, I gained experience in NLP techniques and model optimization, and I plan to integrate these capabilities into larger NLP projects in the future, focusing on applications in content analysis and information retrieval.
+    `,
+    imageUrl: "./assets/6.webp",
+  },
+  {
+    id: 9,
+    title: "Pneumonia Detection",
+    note: "TensorFlow Keras + Python + CNN / PyTorch + CNN",
+    description: `
+      This project consists of two image classification applications: a pneumonia detection model and satellite image classification. For pneumonia detection, I built a CNN using TensorFlow and Keras to classify X-ray images into "pneumonia" or "normal" categories, focusing on data preprocessing, model design, and training. The satellite image classification model, developed using PyTorch, processes land cover images to analyze geographic patterns. The CNN model in each application includes convolutional, max pooling, and dropout layers to improve accuracy and reduce overfitting. Through this project, I gained experience in handling medical and environmental data, optimizing CNN architectures, and applying transfer learning to improve model performance. This work supports future applications in medical diagnostics and environmental monitoring, where I plan to further explore CNN applications in classification and prediction.
+    `,
+    imageUrl: "./assets/8.webp",
+  },
+  {
+    id: 10,
+    title: "Satellite Image Classification",
+    note: "TensorFlow Keras + Python + CNN / PyTorch + CNN",
+    description: `
+      This project consists of two image classification applications: a pneumonia detection model and satellite image classification. For pneumonia detection, I built a CNN using TensorFlow and Keras to classify X-ray images into "pneumonia" or "normal" categories, focusing on data preprocessing, model design, and training. The satellite image classification model, developed using PyTorch, processes land cover images to analyze geographic patterns. The CNN model in each application includes convolutional, max pooling, and dropout layers to improve accuracy and reduce overfitting. Through this project, I gained experience in handling medical and environmental data, optimizing CNN architectures, and applying transfer learning to improve model performance. This work supports future applications in medical diagnostics and environmental monitoring, where I plan to further explore CNN applications in classification and prediction.
+    `,
+    imageUrl: "./assets/8.webp",
+  },
+  {
+    id: 11,
     title: "Calculator",
     note: "Java + Java Swing (GUI)",
     description: `
@@ -67,38 +109,30 @@ const cardData = [
     imageUrl: "./assets/7.webp",
   },
   {
-    id: 8,
-    title: "Pneumonia Detection / Satellite Image Classification",
-    note: "TensorFlow Keras + Python + CNN / PyTorch + CNN",
-    description: `
-      This project consists of two image classification applications: a pneumonia detection model and satellite image classification. For pneumonia detection, I built a CNN using TensorFlow and Keras to classify X-ray images into "pneumonia" or "normal" categories, focusing on data preprocessing, model design, and training. The satellite image classification model, developed using PyTorch, processes land cover images to analyze geographic patterns. The CNN model in each application includes convolutional, max pooling, and dropout layers to improve accuracy and reduce overfitting. Through this project, I gained experience in handling medical and environmental data, optimizing CNN architectures, and applying transfer learning to improve model performance. This work supports future applications in medical diagnostics and environmental monitoring, where I plan to further explore CNN applications in classification and prediction.
-    `,
-    imageUrl: "./assets/8.webp",
+    id: 12,
+    title: "Youtube Channel",
+    note: "Davinci Resolve + Adobe",
+    description:
+      "This project is a reflection of my passion for video creation, where I shoot and edit content as a fun and creative hobby. Using tools like DaVinci Resolve and Adobe Premiere Pro, I’ve spent time developing my editing skills and experimenting with different filming techniques. While it’s not a professional venture, the channel has allowed me to explore storytelling through video, improve my technical abilities, and enhance my creativity with each new video. Whether it’s simple edits or more complex content, every project helps me continue to grow in my understanding of video production. From color correction to audio enhancements and visual effects, I enjoy the process of creating content that reflects my personal journey in video editing. This channel is a personal outlet for me, where I can share my progress and enjoy the process of creating without the pressure of professional expectations. It’s a space where I continue to learn, have fun, and challenge myself to improve.",
+    imageUrl: "./assets/9.png", // Reuse images from existing ones
   },
   // Added "Coming Soon" cards with blurred images
   {
-    id: 9,
-    title: "Coming Soon...",
-    note: "Coming Soon...",
-    description: "Stay tuned for this upcoming project!",
-    imageUrl: "./assets/9.png", // Reuse images from existing ones
-  },
-  {
-    id: 10,
+    id: 13,
     title: "Coming Soon...",
     note: "Coming Soon...",
     description: "Stay tuned for this upcoming project!",
     imageUrl: "./assets/10.png",
   },
   {
-    id: 11,
+    id: 14,
     title: "Coming Soon...",
     note: "Coming Soon...",
     description: "Stay tuned for this upcoming project!",
     imageUrl: "./assets/11.png",
   },
   {
-    id: 12,
+    id: 15,
     title: "Coming Soon...",
     note: "Coming Soon...",
     description: "Stay tuned for this upcoming project!",
@@ -146,6 +180,13 @@ const WorkGrid: React.FC = () => {
   return (
     <div id="work-container">
       <div id="circle-container">
+        <button
+          className="github-button"
+          onClick={handleGithubClick}
+          aria-label="View GitHub Repositories"
+        >
+          <FontAwesomeIcon icon={faGithub} />
+        </button>
         <svg id="progress" width="100" height="100" viewBox="0 0 100 100">
           <circle cx="50" cy="50" r="30" pathLength="1" className="bg" />
           <motion.circle

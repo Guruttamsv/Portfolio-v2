@@ -1,0 +1,39 @@
+/* Parallax should be in the background, behind content */
+.parallax {
+    position: absolute;
+    /* Ensure parallax text is absolutely positioned */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    /* Full width of the viewport */
+    height: 100vh;
+    /* Full height of the viewport */
+    z-index: -1;
+    /* Push it behind the content */
+    overflow: hidden;
+    letter-spacing: -2px;
+    line-height: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'Courier','monospace';
+    color: rgb(255, 255, 255);
+    /* Light color for background feel */
+    text-shadow: 0 0 10px var(--purple);
+    /* Glowy text effect */
+}
+
+.parallax .scroller {
+    font-weight: 600;
+    text-transform: uppercase;
+    display: flex;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+}
+
+.parallax span {
+    display: block;
+    margin-right: 30px;
+}
+
+/* Optional: You can also add more styles for text glow or animations */
