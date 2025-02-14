@@ -163,5 +163,13 @@
 @media screen and (max-width: 480px) {
 .top-tab {
         width: 44vw;
+        min-height: 35vh;
     }
+}
+@media (max-width: 1024px) and (min-width: 769px) and (orientation: landscape) {
+.top-tab {
+        width: 45vw;
+        min-height: 45vh;
+    }
+
 }

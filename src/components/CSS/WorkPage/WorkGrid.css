@@ -288,12 +288,13 @@ circle {
 @media screen and (max-width: 480px) {
 #circle-container {
     left: 39%;
+    top: 10px;
   }
 
     /* Grids container to hold the horizontally scrolling list */
     #grids-container {
-      padding-top: 130px;
-      height: 80vh;
+      padding-top: 100px;
+      height: 92vh;
     }
                                                         /* Individual card styling (Targeting li inside #horizontal-tabs) */
                                                         #horizontal-tabs li {
@@ -309,9 +310,19 @@ circle {
 @media (max-width: 1024px) and (min-width: 769px) and (orientation: landscape) {
 #circle-container {
     left: 44%;
+    top: -10px;
   }
-    #horizontal-tabs .card.expanded {
-      min-width: 200vw;
-  
-    }
-}
+            /* Grids container to hold the horizontally scrolling list */
+            #grids-container {
+              padding-top: 50px;
+              height: 95vh;
+            }
+      
+            /* Individual card styling (Targeting li inside #horizontal-tabs) */
+            #horizontal-tabs li {
+              flex: 0 0 40vw;
+            }
+      
+            #horizontal-tabs .card.expanded {
+              min-width: 400vw;
+}}

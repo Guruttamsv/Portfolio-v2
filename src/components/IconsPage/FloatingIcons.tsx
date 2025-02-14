@@ -148,6 +148,7 @@ const FloatingIcons: React.FC<{ mobile?: boolean }> = ({ mobile = false }) => {
 
   const desktopTargetPosition: [number, number, number] = [-8, 0, 1];
 
+  // Mobile initial and target positions
   const mobileInitialPositions: [number, number, number][] = [
     [-2.5, 1.5, 0], // Airpods
     [1.75, 1.5, 0], // Plant
@@ -161,7 +162,23 @@ const FloatingIcons: React.FC<{ mobile?: boolean }> = ({ mobile = false }) => {
     [-0.5, -2, 0], // Suitcase
   ];
 
-  const mobileTargetPosition: [number, number, number] = [-0.5,3,1];
+  const mobileTargetPosition: [number, number, number] = [-0.5, 3, 1];
+
+  // Landscape (tablet) initial and target positions
+  const landscapeInitialPositions: [number, number, number][] = [
+    [-1.5, 1, 0], // Airpods
+    [3.7, 1, 0], // Plant
+    [1.5, 1, 0], // Calculator
+    [3.7, -2, 0], // Flash Drive
+    [-3, -0.5, 0], // Joystick
+    [2.5, -0.5, 0], // Lifebuoy
+    [-1.5, -2, 0], // Mouse
+    [0, -0.5, 0], // Router
+    [5.3, -1, 0], // Cube
+    [1.5, -2, 0], // Suitcase
+  ];
+
+  const landscapeTargetPosition: [number, number, number] = [-5, -0.5, 1];
 
   // The card messages associated with each icon
   const cardMessages = [
@@ -179,7 +196,7 @@ const FloatingIcons: React.FC<{ mobile?: boolean }> = ({ mobile = false }) => {
 
   const [targetPosition, setTargetPosition] = useState<
     [number, number, number]
-  >(mobile ? mobileTargetPosition : desktopTargetPosition);
+  >(mobile ? mobileTargetPosition : landscapeInitialPositions[0]);
 
   const [movingObjectIndex, setMovingObjectIndex] = useState<number | null>(
     null
@@ -199,7 +216,7 @@ const FloatingIcons: React.FC<{ mobile?: boolean }> = ({ mobile = false }) => {
 
   // Dynamically update icon and target positions based on window size
   const [updatedPositions, setUpdatedPositions] = useState(
-    mobile ? mobileInitialPositions : desktopInitialPositions
+    mobile ? mobileInitialPositions : landscapeInitialPositions
   );
 
   const [updatedTargetPositions, setUpdatedTargetPositions] =
@@ -208,12 +225,21 @@ const FloatingIcons: React.FC<{ mobile?: boolean }> = ({ mobile = false }) => {
   useEffect(() => {
     const updatePositions = () => {
       const isMobile = window.innerWidth <= 768;
-      setUpdatedPositions(
-        isMobile ? mobileInitialPositions : desktopInitialPositions
-      );
-      setUpdatedTargetPositions(
-        isMobile ? mobileTargetPosition : desktopTargetPosition
-      );
+      const isLandscape =
+        window.innerWidth >= 769 &&
+        window.innerWidth <= 1024 &&
+        window.matchMedia("(orientation: landscape)").matches;
+
+      if (isMobile) {
+        setUpdatedPositions(mobileInitialPositions);
+        setUpdatedTargetPositions(mobileTargetPosition);
+      } else if (isLandscape) {
+        setUpdatedPositions(landscapeInitialPositions);
+        setUpdatedTargetPositions(landscapeTargetPosition);
+      } else {
+        setUpdatedPositions(desktopInitialPositions);
+        setUpdatedTargetPositions(desktopTargetPosition);
+      }
     };
 
     updatePositions();
