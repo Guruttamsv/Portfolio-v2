@@ -310,4 +310,8 @@ circle {
 #circle-container {
     left: 44%;
   }
+    #horizontal-tabs .card.expanded {
+      min-width: 200vw;
+  
+    }
 }

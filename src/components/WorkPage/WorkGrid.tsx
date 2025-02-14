@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const handleGithubClick = () => {
-    window.open("https://github.com/Guruttamsv?tab=repositories", "_blank");
-  };
+  window.open("https://github.com/Guruttamsv?tab=repositories", "_blank");
+};
 
 const cardData = [
   {
@@ -109,25 +109,44 @@ const cardData = [
     imageUrl: "./assets/11.webp",
   },
 
- {
-  id: 12,
-  title: "Youtube Channel",
-  note: "Davinci Resolve + Adobe Premier",
-  description: (
-    <>
-      This project is a reflection of my passion for video creation, where I shoot and edit content as a fun and creative hobby. Using tools like DaVinci Resolve and Adobe Premiere Pro, I’ve spent time developing my editing skills and experimenting with different filming techniques. While it’s not a professional venture, the channel has allowed me to explore storytelling through video, improve my technical abilities, and enhance my creativity with each new video. Whether it’s simple edits or more complex content, every project helps me continue to grow in my understanding of video production. From color correction to audio enhancements and visual effects, I enjoy the process of creating content that reflects my personal journey in video editing. This channel is a personal outlet for me, where I can share my progress and enjoy the process of creating without the pressure of professional expectations. It’s a space where I continue to learn, have fun, and challenge myself to improve. 
-      <a 
-        href="https://www.youtube.com/@GrrusInsight" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{ color: "#00ccff", textDecoration: "none", fontWeight: "bold", marginLeft: "5px" }}
-      >
-        Check it out here!
-      </a>
-    </>
-  ),
-  imageUrl: "./assets/12.webp",
-},
+  {
+    id: 12,
+    title: "Youtube Channel",
+    note: "Davinci Resolve + Adobe Premier",
+    description: (
+      <>
+        This project is a reflection of my passion for video creation, where I
+        shoot and edit content as a fun and creative hobby. Using tools like
+        DaVinci Resolve and Adobe Premiere Pro, I’ve spent time developing my
+        editing skills and experimenting with different filming techniques.
+        While it’s not a professional venture, the channel has allowed me to
+        explore storytelling through video, improve my technical abilities, and
+        enhance my creativity with each new video. Whether it’s simple edits or
+        more complex content, every project helps me continue to grow in my
+        understanding of video production. From color correction to audio
+        enhancements and visual effects, I enjoy the process of creating content
+        that reflects my personal journey in video editing. This channel is a
+        personal outlet for me, where I can share my progress and enjoy the
+        process of creating without the pressure of professional expectations.
+        It’s a space where I continue to learn, have fun, and challenge myself
+        to improve.
+        <a
+          href="https://www.youtube.com/@GrrusInsight"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: "#00ccff",
+            textDecoration: "none",
+            fontWeight: "bold",
+            marginLeft: "5px",
+          }}
+        >
+          Check it out here!
+        </a>
+      </>
+    ),
+    imageUrl: "./assets/12.webp",
+  },
   // Added "Coming Soon" cards with blurred images
   {
     id: 13,
@@ -157,10 +176,6 @@ const WorkGrid: React.FC = () => {
   const { scrollXProgress } = useScroll({ container: ref });
   const [clickedIndex, setClickedIndex] = useState<number | null>(null);
 
-  const handleClick = (index: number) => {
-    setClickedIndex(clickedIndex === index ? null : index);
-  };
-
   const handleWheel = (event: React.WheelEvent) => {
     if (ref.current) {
       event.preventDefault();
@@ -181,6 +196,12 @@ const WorkGrid: React.FC = () => {
       document.body.style.overflowY = "auto";
     };
   }, []);
+
+  const handleClick = (index: number) => {
+    // Prevent expansion for "Coming Soon" cards
+    if (cardData[index].id >= 13) return;
+    setClickedIndex(clickedIndex === index ? null : index);
+  };
 
   return (
     <div id="work-container">
@@ -218,21 +239,24 @@ const WorkGrid: React.FC = () => {
               key={index}
               className={`card ${clickedIndex === index ? "expanded" : ""}`}
               onClick={() => handleClick(index)}
+              style={card.id >= 13 ? { cursor: "default" } : {}}
             >
               <div className="card-image">
                 <img src={card.imageUrl} alt={`Card ${index + 1}`} />
               </div>
               <div className="card-overlay">
-                {clickedIndex === index ? (
-                  <p>{card.description}</p> // Show description when expanded
+                {card.id >= 13 ? (
+                  <h3>Coming Soon...</h3>
+                ) : clickedIndex === index ? (
+                  <p>{card.description}</p>
                 ) : (
                   <>
-                    <h3>{card.title}</h3> {/* Actual Title */}
-                    <p className="note">{card.note}</p> {/* Actual Note */}
+                    <h3>{card.title}</h3>
+                    <p className="note">{card.note}</p>
                   </>
                 )}
               </div>
-              <div className="arrow" /> {/* Arrow symbol */}
+              <div className="arrow" />
             </motion.li>
           ))}
         </ul>
