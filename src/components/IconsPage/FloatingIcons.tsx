@@ -134,19 +134,19 @@ const FloatingIcons: React.FC<{ mobile?: boolean }> = ({ mobile = false }) => {
 
   // Desktop initial and target positions, scales
   const desktopInitialPositions: [number, number, number][] = [
-    [5, 2, 0], // Airpods
-    [-1.5, 2, 0], // Plant
-    [2, 2, 0], // Calculator
-    [7, 0, 0], // Flash Drive
-    [4, 0, 0], // Joystick
-    [0, 0, 0], // Lifebuoy
-    [-3, 0, 0], // Mouse
-    [-1.5, -2, 0], // Router
-    [5.5, -2.5, 0], // Cube
-    [2, -2, 0], // Suitcase
+    [6.5, 2, 0], // Airpods
+    [-2.5, 2, 0], // Plant
+    [1.5, 2, 0], // Calculator
+    [8, -1, 0], // Flash Drive
+    [4, -1, 0], // Joystick
+    [-0.5, -1, 0], // Lifebuoy
+    [-4, -1, 0], // Mouse
+    [-2, -4, 0], // Router
+    [6.5, -4.5, 0], // Cube
+    [1.5, -4, 0], // Suitcase
   ];
 
-  const desktopTargetPosition: [number, number, number] = [-5.5, 0, 1];
+  const desktopTargetPosition: [number, number, number] = [-8, 0, 1];
 
   const mobileInitialPositions: [number, number, number][] = [
     [-2.5, 1.5, 0], // Airpods
