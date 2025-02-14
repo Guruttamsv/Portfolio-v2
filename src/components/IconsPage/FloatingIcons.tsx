@@ -19,12 +19,21 @@ const FloatingIcon: React.FC<{
   const [currentScale, setCurrentScale] = useState(1); // Set initial scale
   const [iconScale, setIconScale] = useState(1); // Scale for icon based on viewport size
 
-  // Inside the FloatingIcon component's useEffect hook
+  // Inside the FloatingIcon component
   useEffect(() => {
     const updateScale = () => {
-      const baseScale = window.innerWidth / 1000; // Adjust this factor for better scaling
+      const baseScale = window.innerWidth / 1000; // Base scale factor for larger screens
+
+      // Check if it's a mobile device
+      const isMobile = window.innerWidth <= 768;
+
+      // Adjust scale for mobile devices
+      const scaleFactor = isMobile ? 1.5 : 1; // Scale up for mobile devices by a factor of 1.5
       const maxScale = 2; // Set the maximum scale for the icons
-      const scale = Math.min(baseScale, maxScale); // Ensure the scale doesn't exceed the maxScale
+
+      // Calculate the final scale, ensuring it doesn't exceed the maxScale
+      const scale = Math.min(baseScale * scaleFactor, maxScale);
+
       setIconScale(scale);
     };
 
@@ -50,7 +59,11 @@ const FloatingIcon: React.FC<{
         new THREE.Vector3(...targetPos),
         0.1 // Smoothness of the transition (0.1 is the speed factor)
       );
-      setCurrentPosition([lerpedPosition.x, lerpedPosition.y, lerpedPosition.z]);
+      setCurrentPosition([
+        lerpedPosition.x,
+        lerpedPosition.y,
+        lerpedPosition.z,
+      ]);
 
       // Interpolate scale smoothly
       const lerpedScale = THREE.MathUtils.lerp(currentScale, targetScale, 0.1); // Smoothly transition the scale
@@ -119,7 +132,8 @@ const FloatingIcons: React.FC<{ mobile?: boolean }> = ({ mobile = false }) => {
     "./assets/GLTFS/Suitcase/Suitcase.gltf",
   ];
 
-  const initialPositions: [number, number, number][] = [
+  // Desktop initial and target positions, scales
+  const desktopInitialPositions: [number, number, number][] = [
     [5, 2, 0], // Airpods
     [-1.5, 2, 0], // Plant
     [2, 2, 0], // Calculator
@@ -131,6 +145,23 @@ const FloatingIcons: React.FC<{ mobile?: boolean }> = ({ mobile = false }) => {
     [5.5, -2.5, 0], // Cube
     [2, -2, 0], // Suitcase
   ];
+
+  const desktopTargetPosition: [number, number, number] = [-5.5, 0, 1];
+
+  const mobileInitialPositions: [number, number, number][] = [
+    [-2.5, 1.5, 0], // Airpods
+    [1.75, 1.5, 0], // Plant
+    [-0.5, 1.5, 0], // Calculator
+    [0.75, -3.5, 0], // Flash Drive
+    [-1.5, 0, 0], // Joystick
+    [0.75, 0, 0], // Lifebuoy
+    [-1.5, -3.5, 0], // Mouse
+    [-2.5, -1.5, 0], // Router
+    [2, -1.75, 0], // Cube
+    [-0.5, -2, 0], // Suitcase
+  ];
+
+  const mobileTargetPosition: [number, number, number] = [-0.5,3,1];
 
   // The card messages associated with each icon
   const cardMessages = [
@@ -148,7 +179,7 @@ const FloatingIcons: React.FC<{ mobile?: boolean }> = ({ mobile = false }) => {
 
   const [targetPosition, setTargetPosition] = useState<
     [number, number, number]
-  >([-5.5, 0, 1]);
+  >(mobile ? mobileTargetPosition : desktopTargetPosition);
 
   const [movingObjectIndex, setMovingObjectIndex] = useState<number | null>(
     null
@@ -167,34 +198,24 @@ const FloatingIcons: React.FC<{ mobile?: boolean }> = ({ mobile = false }) => {
   };
 
   // Dynamically update icon and target positions based on window size
-  const [updatedPositions, setUpdatedPositions] = useState(initialPositions);
-  const [updatedTargetPositions, setUpdatedTargetPositions] = useState(targetPosition);
+  const [updatedPositions, setUpdatedPositions] = useState(
+    mobile ? mobileInitialPositions : desktopInitialPositions
+  );
+
+  const [updatedTargetPositions, setUpdatedTargetPositions] =
+    useState(targetPosition);
 
   useEffect(() => {
     const updatePositions = () => {
-      const scaleFactor = window.innerWidth / 1000;
-      const offset = 0.5 * scaleFactor;
-      const newPositions: [number, number, number][] = initialPositions.map(
-        ([x, y, z]) => {
-          return [x * scaleFactor - offset, y * scaleFactor - offset, z] as [
-            number,
-            number,
-            number
-          ];
-        }
+      const isMobile = window.innerWidth <= 768;
+      setUpdatedPositions(
+        isMobile ? mobileInitialPositions : desktopInitialPositions
       );
-      setUpdatedPositions(newPositions);
-
-      // Update target positions similarly
-      const newTargetPosition: [number, number, number] = [
-        targetPosition[0] * scaleFactor - offset,
-        targetPosition[1] * scaleFactor - offset,
-        targetPosition[2],
-      ];
-      setUpdatedTargetPositions(newTargetPosition);
+      setUpdatedTargetPositions(
+        isMobile ? mobileTargetPosition : desktopTargetPosition
+      );
     };
 
-    // Update positions initially and on every resize
     updatePositions();
     window.addEventListener("resize", updatePositions);
 

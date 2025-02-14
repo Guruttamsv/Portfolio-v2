@@ -1,6 +1,6 @@
 .svg-container {
     position: absolute;
-    top: 15%;
+    top: 14%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
@@ -34,3 +34,44 @@ motion.path {
 motion.path {
     stroke-width: 6;
 }
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+    .svg-container {
+        top:8%;
+    }
+
+    .animated-text {
+        max-width: 80vw;
+        max-height: 50vh;
+        transform: scale(1.15);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .svg-container {
+        top: 8%;
+
+    }
+
+    .animated-text {
+        max-width: 85vw;
+        max-height: 50vh;
+        transform: scale(1.15);
+    }
+}
+
+                /* 🌐 Landscape Tablets & Mid-Sized Screens */
+                @media (max-width: 1024px) and (min-width: 769px) and (orientation: landscape) {
+                        .svg-container {
+                                top:22%;
+                        
+                            }
+                        
+                            .animated-text {
+                                max-width: 85vw;
+                                max-height: 50vh;
+                                transform: scale(1.13);
+                            }
+        
+                }

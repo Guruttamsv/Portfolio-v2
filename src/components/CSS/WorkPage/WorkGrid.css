@@ -22,7 +22,7 @@ body {
 #circle-container {
   position: absolute;
   top: 20px;
-    left: 46.4%;
+  left: 46.4%;
   /* Create a 100x100 container for the button and circle */
 }
 
@@ -161,10 +161,13 @@ circle {
 }
 
 #horizontal-tabs .card.expanded {
-  flex: 0 0 90vw;
-  width: 50vw;
-  height: 100%;
+  flex: 0 0 auto;  /* Allow it to grow and shrink based on content */
+  width: auto;  /* Make width auto, so it adjusts with content */
+  height: auto;  /* Allow the height to be dynamic based on content */
   z-index: 1000;
+  /* Optional: If you want to ensure a minimum width, you can use min-width */
+  min-width: 100vw;
+  max-width: 1000vw;
 }
 
 #horizontal-tabs .card.expanded .card-image {
@@ -261,4 +264,50 @@ circle {
 .github-button svg {
   font-size: 42px;
   /* Adjust icon size */
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+#circle-container {
+    left: 42%;
+  }
+            #grids-container {
+              padding-top: 130px;
+              height: 90vh;
+            }
+                        /* Individual card styling (Targeting li inside #horizontal-tabs) */
+                        #horizontal-tabs li {
+                          flex: 0 0 40vw;
+                        }
+                                                #horizontal-tabs .card.expanded {
+                                                  min-width: 300vw;
+                                                
+                                                }
+}
+
+@media screen and (max-width: 480px) {
+#circle-container {
+    left: 39%;
+  }
+
+    /* Grids container to hold the horizontally scrolling list */
+    #grids-container {
+      padding-top: 130px;
+      height: 80vh;
+    }
+                                                        /* Individual card styling (Targeting li inside #horizontal-tabs) */
+                                                        #horizontal-tabs li {
+                                                          flex: 0 0 50vw;
+                                                        }
+                                                                                                                 #horizontal-tabs .card.expanded {
+                                                                                                                   min-width: 400vw;
+                                                        
+                                                                                                                 }
+}
+
+/* 🌐 Landscape Tablets & Mid-Sized Screens */
+@media (max-width: 1024px) and (min-width: 769px) and (orientation: landscape) {
+#circle-container {
+    left: 44%;
+  }
 }

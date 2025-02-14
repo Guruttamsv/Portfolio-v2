@@ -6,7 +6,9 @@
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     position: relative; /* Positioning context for pop-ups */
-    overflow: hidden; /* Ensure nothing overflows */
+    overflow: visible; /* Allow full interaction, no hidden content */
+    pointer-events: auto;
+        /* Allow right-click and interactions */
 }
 
 /* Styling for the Canvas element */
@@ -15,8 +17,8 @@ canvas {
     height: 100%; /* Ensure Canvas takes full height */
     display: block; /* Prevent inline display issues */
     object-fit: cover; /* Make sure canvas content covers the area */
+    pointer-events: auto; /* Allow right-click and interactions */
 }
-
 
 /* CSS for the pop-up card */
 .popup-menu {
@@ -37,7 +39,6 @@ canvas {
     height: auto;
     max-height: 25vh; /* Max height for better readability */
     overflow: auto;
-
 }
 
 /* Popup content and message styling */
@@ -77,32 +78,56 @@ canvas {
 
 /* Responsiveness for small screens */
 @media (max-width: 768px) {
-    .popup-menu {
-        width: 90vw; /* Make the card wider on smaller screens */
-        height: 60vh; /* Reduce height */
-    }
-
-    .popup-content {
-        font-size: 4vw; /* Adjust text size */
-    }
-
-    .card-title {
-        font-size: 1.5rem; /* Larger title on smaller screens */
-    }
-
-    .card-message {
-        font-size: 1.1rem; /* Slightly larger font on smaller screens */
-    }
+    /* Ensure the Canvas container fills the parent */
+        .play-container {
+            top: 10%;
+            width: 80%;
+            /* Full width of the parent */
+            height: 65vh;
+        }
+    
+        .popup-menu {
+            top: -14%;
+            left: 45%;
+            width: 90vw;
+            max-height: 25vh;
+            /* Width as a percentage of the viewport width */
+        }
+    
+        .popup-content {
+            font-size: 5vw;
+            /* More responsive text size */
+        }
+    
+        .card-title {
+            font-size: 1.2rem;
+        }
+    
+        .card-message {
+            font-size: 1.2rem;
+        }
 }
 
 @media (max-width: 480px) {
-    .popup-menu {
-        width: 95vw; /* Card width should be almost the full screen */
-        height: 50vh; /* Card height adjustment */
-    }
+    /* Ensure the Canvas container fills the parent */
+        .play-container {
+            top: 10%;
+            width: 80%;
+            /* Full width of the parent */
+            height: 65vh;
+        }
+
+        .popup-menu {
+             top: -14%;
+             left: 45%;
+            width: 90vw;
+            max-height: 25vh;
+                /* Width as a percentage of the viewport width */
+         }
 
     .popup-content {
-        font-size: 5vw; /* More responsive text size */
+        font-size: 5vw;
+        /* More responsive text size */
     }
 
     .card-title {
@@ -113,4 +138,3 @@ canvas {
         font-size: 1.2rem;
     }
 }
-

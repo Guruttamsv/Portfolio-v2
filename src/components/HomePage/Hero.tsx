@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from "react";
 import "../CSS/HomePage/Hero.css";
 import { motion } from "framer-motion";
-import AnimatedText from "../HomePage/AnimatedText"; 
+import AnimatedText from "../HomePage/AnimatedText";
 
 const Hero: React.FC = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 479);
+  const [scrollText, setScrollText] = useState(
+    isMobile ? "SWIPE UP" : "SCROLL DOWN"
+  );
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 479);
+      const mobile = window.innerWidth <= 479;
+      setIsMobile(mobile);
+      setScrollText(mobile ? "SWIPE UP" : "SCROLL DOWN");
     };
 
     handleResize(); // Set initial value
-
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -27,9 +31,7 @@ const Hero: React.FC = () => {
         className="hero-image"
         initial={{ x: "3vw" }}
         animate={{ x: "0vw" }}
-        transition={{
-          duration: 12,
-        }}
+        transition={{ duration: 12 }}
       />
       <motion.div
         className="scroll-text"
@@ -46,7 +48,7 @@ const Hero: React.FC = () => {
           delay: 0.5,
         }}
       >
-        SCROLL DOWN
+        {scrollText}
       </motion.div>
     </div>
   );

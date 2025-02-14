@@ -157,3 +157,11 @@
 .top-tab.expanded .icon {
     transform: rotate(180deg);
 }
+
+/* Mobile adjustments */
+
+@media screen and (max-width: 480px) {
+.top-tab {
+        width: 44vw;
+    }
+}

@@ -42,7 +42,7 @@
     }
 
     .typing-text {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 }
 
@@ -52,6 +52,18 @@
     }
 
     .typing-text {
-        font-size: 1.2rem;
+        font-size: 1.8rem;
     }
+
+}
+        /* 🌐 Landscape Tablets & Mid-Sized Screens */
+        @media (max-width: 1024px) and (min-width: 769px) and (orientation: landscape) {
+            .typing-container {
+                    font-size: 1.2rem;
+                }
+            
+                .typing-text {
+                    font-size: 1.8rem;
+                }
+        
 }
